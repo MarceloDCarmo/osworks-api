@@ -33,7 +33,7 @@ Todas as respostas são enviadas em formato JSON.
 ```
 {
     "nome": "Nome do Cliente",
-    "email": "noem.sobrenome@email.com",
+    "email": "nome.sobrenome@email.com",
     "telefone": "00 912345678"
 }
 ```
@@ -44,7 +44,7 @@ Todas as respostas são enviadas em formato JSON.
     "cliente":{
         "id": 1
     },
-    "descricao": "Descrição do probelma relatado",
+    "descricao": "Descrição do problema relatado",
     "preco": 100.00
 }
 ```
