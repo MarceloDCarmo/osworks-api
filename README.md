@@ -23,7 +23,7 @@ Todas as respostas são enviadas em formato JSON.
 * **.../ordens-servico (via GET):** Retorna uma lista de todas as ordens de serviço cadastradas
 * **.../ordens-servico/{ordemServicoId} (via GET):** retorna a ordem de serviço referente ao ID informado, ou código 404 caso não exista.
 * **.../ordens-servico (via POST) (dados da ordem de serviço a ser cadastrada no corpo na requisição):** salva uma nova ordem de serviço. 
-* **.../ordens-servico/{ordemServicoId}/finalizacao (via PUT):** altera o status da ordem de serviço referente ao ID informado para FINALIZADA, ou código 404 caso não exista.
+* **.../ordens-servico/{ordemServicoId}/finalizacao (via PUT):** altera o status da ordem de serviço referente ao ID informado para FINALIZADA, ou código 404 caso não exista ou 400 caso não possa ser finalizada.
 
 3.Comentário
 * **.../ordens-servico/{ordemServicoId}/comentarios (via GET):** Retorna uma lista de todos os comentário adicionados à ordem de serviço referente ao ID informado.
