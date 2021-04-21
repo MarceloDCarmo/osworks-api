@@ -28,8 +28,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler(NegocioException.class)
 	public ResponseEntity<Object> handleNegocio(NegocioException ex, WebRequest request) {
-		var status = HttpStatus.BAD_REQUEST;
-		var problema = new Problema();
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+		Problema problema = new Problema();
 		problema.setStatus(status.value());
 		problema.setTitulo(ex.getMessage());
 		problema.setDataHora(OffsetDateTime.now());
@@ -39,8 +39,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler(EntidadeNaoEncontradaException.class)
 	public ResponseEntity<Object> handleEntidadeNaoEncontrada(EntidadeNaoEncontradaException ex, WebRequest request) {
-		var status = HttpStatus.NOT_FOUND;
-		var problema = new Problema();
+		HttpStatus status = HttpStatus.NOT_FOUND;
+		Problema problema = new Problema();
 		problema.setStatus(status.value());
 		problema.setTitulo(ex.getMessage());
 		problema.setDataHora(OffsetDateTime.now());
@@ -52,7 +52,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		var campos = new ArrayList<Problema.Campo>();
+		ArrayList<Problema.Campo> campos = new ArrayList<Problema.Campo>();
 		
 		for (ObjectError error : ex.getBindingResult().getAllErrors()) {
 			String nome = ((FieldError) error).getField();
@@ -61,7 +61,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 			campos.add(new Problema.Campo(nome, mensagem));
 		}
 		
-		var problema = new Problema();
+		Problema problema = new Problema();
 		problema.setStatus(status.value());
 		problema.setTitulo("Um ou mais campos são inválidos. "
 				+ "Faça o preenchimento correto e tente novamente");
